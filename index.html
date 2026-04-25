@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tiếng Anh 8 — Học kỳ 2 — Final exam practice (Global Success). 3 interactive multiple-choice exams covering Units 7–12." />
+  <title>English 8 — Semester 2 Final Exam Practice (Global Success)</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%9A%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">📚</span>
+        <div class="brand-text">
+          <div class="brand-title">English 8 — Semester 2</div>
+          <div class="brand-sub">Interactive final-exam practice · Global Success</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="badge">Tiếng Anh 8 · HK2</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ========================= HOME ========================= -->
+    <section id="screen-home" class="screen active">
+      <div class="hero">
+        <h1>Pick an exam to begin</h1>
+        <p class="lead">
+          3 multiple-choice practice exams aligned with the Global Success
+          (Tiếng Anh 8 – Kết nối tri thức) textbook, semester 2 (Units 7–12).
+          Each exam has 20 questions for ~25 minutes, with instant feedback
+          and a clear explanation after every answer.
+        </p>
+      </div>
+
+      <div id="exam-grid" class="exam-grid"><!-- cards injected by JS --></div>
+
+      <section class="howto">
+        <h2>How to use</h2>
+        <ol class="howto-list">
+          <li>Pick an exam from the list above.</li>
+          <li>Answer each question — correct/incorrect feedback and an explanation appear immediately.</li>
+          <li>At the end, see your total score, accuracy and time used. You can retake any exam.</li>
+          <li>Each exam includes phonetics, grammar, vocabulary, communication, and a short reading passage.</li>
+        </ol>
+      </section>
+
+      <section class="syllabus">
+        <h2>What's covered</h2>
+        <div class="syllabus-grid">
+          <div class="syllabus-card">
+            <div class="syllabus-tag">Units 7 – 8</div>
+            <div class="syllabus-title">Environmental Protection &amp; Shopping</div>
+            <div class="syllabus-body">
+              First conditional (If + present, will + V) · Verbs followed by gerund / to-infinitive
+              · Past simple vs past continuous · Quantifiers (much / many / a lot of)
+              · Vocabulary: pollution, recycling, deforestation, sale, mall, browse…
+            </div>
+          </div>
+          <div class="syllabus-card">
+            <div class="syllabus-tag">Units 9 – 10</div>
+            <div class="syllabus-title">Natural Disasters &amp; Communication</div>
+            <div class="syllabus-body">
+              Past continuous · Past perfect · Reported statements, questions and commands
+              · Vocabulary: earthquake, drought, tsunami, snail mail, video conferencing…
+            </div>
+          </div>
+          <div class="syllabus-card">
+            <div class="syllabus-tag">Units 11 – 12</div>
+            <div class="syllabus-title">Science &amp; Tech, Life on Other Planets</div>
+            <div class="syllabus-body">
+              Will vs Be going to · Compound nouns · Present perfect · Modal verbs (must / may / might / could)
+              · Vocabulary: invention, drone, gravity, astronaut, atmosphere…
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ========================= EXAM ========================= -->
+    <section id="screen-exam" class="screen">
+      <div class="exam-header">
+        <button id="btn-back" class="btn btn-ghost" type="button">
+          <span aria-hidden="true">←</span>
+          <span>Home</span>
+        </button>
+        <div class="exam-meta">
+          <div id="exam-title" class="exam-title">—</div>
+          <div id="exam-topics" class="exam-topics">—</div>
+        </div>
+        <div class="exam-stats">
+          <div class="stat">Progress: <strong id="exam-progress">0/0</strong></div>
+          <div class="stat">Score: <strong id="exam-score">0</strong></div>
+          <div class="stat">Time: <strong id="exam-time">00:00</strong></div>
+        </div>
+      </div>
+
+      <div class="progress-track" aria-hidden="true">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <div id="questions" class="questions"><!-- questions injected by JS --></div>
+
+      <div class="exam-footer">
+        <button id="btn-finish" class="btn btn-primary" type="button">Submit &amp; see results</button>
+      </div>
+    </section>
+
+    <!-- ========================= RESULT ========================= -->
+    <section id="screen-result" class="screen">
+      <div class="result-card">
+        <h2>Your results</h2>
+        <div id="result-title" class="result-subtitle">—</div>
+
+        <div class="result-circle-wrap">
+          <svg class="result-circle" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="rc-bg" cx="60" cy="60" r="52"></circle>
+            <circle id="rc-fg" class="rc-fg" cx="60" cy="60" r="52"
+                    stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+          </svg>
+          <div class="result-circle-text">
+            <div id="result-percent" class="result-percent">0%</div>
+            <div id="result-fraction" class="result-fraction">0 / 0</div>
+          </div>
+        </div>
+
+        <div id="result-feedback" class="result-feedback">—</div>
+
+        <div class="result-stats-grid">
+          <div class="stat-block">
+            <div class="stat-num" id="stat-correct">0</div>
+            <div class="stat-label">Correct</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num" id="stat-wrong">0</div>
+            <div class="stat-label">Wrong</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num" id="stat-skipped">0</div>
+            <div class="stat-label">Skipped</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-num" id="stat-time">00:00</div>
+            <div class="stat-label">Time used</div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button id="btn-retry" class="btn btn-primary" type="button">Retake this exam</button>
+          <button id="btn-review" class="btn btn-secondary" type="button">Review answers</button>
+          <button id="btn-home" class="btn btn-ghost" type="button">Home</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>English 8 · Semester 2 · Aligned with Global Success (Kết nối tri thức).</span>
+      <span class="footer-sep">·</span>
+      <span>For practice only — not an official school exam.</span>
+    </div>
+  </footer>
+
+  <script src="exams.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
